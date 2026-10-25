@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guideguard"
+version = "1.0.0"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = ["numpy", "scipy", "nibabel"]
+
+[tool.setuptools.packages.find]
+include = ["guideguard*"]

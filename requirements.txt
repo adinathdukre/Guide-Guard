@@ -1,0 +1,6 @@
+torch>=2.4
+numpy>=1.26
+scipy>=1.11
+nibabel>=5.2
+SimpleITK>=2.3
+nnunetv2==2.6.2

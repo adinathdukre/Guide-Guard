@@ -35,27 +35,16 @@ Official code for **Guide and Guard**.
 - **Guide** synthesises post-contrast T1 (T1c) from non-contrast (NC) brain MRI (T1n, T2w, FLAIR). Out-of-fold lesion maps from an NC segmenter *h* are fed as extra input channels to two regression synthesisers, and Guide's image is their mean.
 - **Guard** attaches a three-level map (**Supported / Check / Unlikely**) to the T1c of *any* synthesiser. Conformal risk control bounds the expected fraction of enhancing tumour (ET) that the image neither shows nor flags (the *miss*), and Learn-then-Test controls false discoveries in the Supported level.
 
-```mermaid
-flowchart LR
-    NC["NC MRI<br/>T1n · T2w · FLAIR"] --> H["h: NC lesion maps<br/>WT / TC / ET"]
-    NC --> G["g: NC ET score"]
-    NC --> Y["2.5D member<br/>YODA + prior"]
-    NC --> N["3D member<br/>nnU-Net L1 + prior<br/>(two runs)"]
-    H --> Y
-    H --> N
-    Y --> F["Guide T1c<br/>mean, flip TTA"]
-    N --> F
-    F --> S["S: reader proxy<br/>ET shown by the image"]
-    S --> GU["Guard<br/>CRC on the miss + LTT on Supported"]
-    G --> GU
-    GU --> M["Supported / Check / Unlikely"]
-```
-
-<p align="center"><em><b>Pipeline.</b> Guide (top path) produces the synthetic T1c. Guard (right) needs only the reader proxy S on the image and the NC ET score g, so it can be calibrated for any synthesiser.</em></p>
+<p align="center">
+<img src="./docs/assets/fig1_method.png" alt="Guide and Guard overview" width="100%"/>
+<br/>
+<em><b>Fig. 1.</b> Guide and Guard on the held-out patient of median ET volume. <b>Guide:</b> NC lesion maps m = h(x, c) enter a 2.5D and a 3D regressor, whose mean is ŷ. <b>Guard</b>, for any synthesiser: S, given ŷ in place of the acquired T1c, marks the ET that ŷ shows (Ê); an NC score s (g, or the exploratory (g + m<sub>ET</sub>)/2, dashed) ranks where ET may be missing; CRC/LTT thresholds from separate calibration patients label each voxel. Labels are algorithmic evidence categories, not diagnoses.</em>
+</p>
 
 ## 📖 Contents
 - [🧠 Method](#-method)
 - [🏆 Results](#-results)
+- [🔍 Qualitative Results](#-qualitative-results)
 - [⛏️ Installation](#️-installation)
 - [🧩 Pretrained Weights](#-pretrained-weights)
 - [🗃️ Data](#️-data)
@@ -100,6 +89,14 @@ Held-out BraTS 2023 GLI test set (249 cases; burden: score *g*, α = 0.1), as re
 | Real T1c (reference) | ∞ | 1.000 | 0.871 | 3.9 mL |
 
 </div>
+
+## 🔍 Qualitative Results
+
+<p align="center">
+<img src="./docs/assets/fig2_qualitative.png" alt="Qualitative results on held-out patients" width="100%"/>
+<br/>
+<em><b>Fig. 2.</b> Held-out patients, zoomed (rules fixed in advance): P1 at the 25th percentile of ET volume; P2 a failure case, most of whose small ET lesions are neither shown nor flagged (missed ET). Errors and Guard's maps (α = 0.1, score g).</em>
+</p>
 
 ## ⛏️ Installation
 
@@ -327,6 +324,7 @@ Guide-Guard/
 │   └── install_trainer.py
 ├── splits/                   # patient-level split and 5-fold CV used in the paper
 ├── tests/                    # Guard unit tests
+├── docs/assets/              # README figures (Fig. 1 method, Fig. 2 qualitative)
 ├── requirements.txt          # env `main`
 └── requirements-yoda.txt     # env `yoda`
 ```

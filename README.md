@@ -11,13 +11,14 @@ style="margin-bottom:-10px; display:block;" />
 </a>
 
 [![ISBI 2027](https://img.shields.io/badge/IEEE_ISBI_2027-Submission-8C1B13?style=for-the-badge)](#-citation)
+[![Project Page](https://img.shields.io/badge/Project-Page-147B82?style=for-the-badge&logo=googlechrome&logoColor=white)](https://genmilab.github.io/Guide-Guard/)
 [![Weights](https://img.shields.io/badge/HF-Weights-AECBFA?style=for-the-badge&logo=huggingface&logoColor=FFCC00&labelColor=grey)](https://huggingface.co/Atharva-Rege/guide-guard)
 [![Data](https://img.shields.io/badge/Data-BraTS_2023_GLI-1F6FEB?style=for-the-badge)](#️-data)
 [![nnU-Net v2](https://img.shields.io/badge/nnU--Net-v2.6.2-orange?style=for-the-badge)](https://github.com/MIC-DKFZ/nnUNet)
 [![License](https://img.shields.io/badge/License-Apache_2.0-green?style=for-the-badge)](LICENSE)
 [![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2Fadinathdukre%2FGuide-Guard&label=Views&countColor=%23147b82&style=for-the-badge)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fadinathdukre%2FGuide-Guard)
 
-<h3>🤗 <a href="https://huggingface.co/Atharva-Rege/guide-guard">Weights</a> &nbsp;|&nbsp; 🧠 <a href="#-method">Method</a> &nbsp;|&nbsp; 🏆 <a href="#-results">Results</a> &nbsp;|&nbsp; ⚡ <a href="#-inference">Inference</a> &nbsp;|&nbsp; 🛡️ <a href="#️-guard">Guard</a></h3>
+<h3>🌐 <a href="https://genmilab.github.io/Guide-Guard/">Project Page</a> &nbsp;|&nbsp; 🤗 <a href="https://huggingface.co/Atharva-Rege/guide-guard">Weights</a> &nbsp;|&nbsp; 🧠 <a href="#-method">Method</a> &nbsp;|&nbsp; 🏆 <a href="#-results">Results</a> &nbsp;|&nbsp; ⚡ <a href="#-inference">Inference</a> &nbsp;|&nbsp; 🛡️ <a href="#️-guard">Guard</a></h3>
 
 **Atharva Atul Rege, [Adinath Madhavrao Dukre](https://github.com/adinathdukre), Imran Razzak**
 
